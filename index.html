@@ -3,32 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="./main.js" type="text/javascript" defer></script>
     <title>To-Do List App</title>
-    <style>
-        
-    </style>
 </head>
 <body>
-    <nav class="container-fluid">
-        <ul>
-            <li><strong>To-Do List</strong></li>
-        </ul>
+    <nav>
+        <div>To-Do List</div>
         <ul>
             <li><a href="#">About</a></li>
             <li><a href="#">Features</a></li>
-            <li><a href="#" role="button">Contact</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
     <main class="container">
         <div class="grid">
             <section>
-                <hgroup>
+                <div class="headings">
                     <h2>Manage Your Tasks</h2>
                     <h3>Effortlessly</h3>
-                </hgroup>
-                <p>Add your tasks below and click 'Done' once you complete them.</p>
+                    <p>Add your tasks below and click 'Done' once you complete them.</p>
+                </div>
                 <div id="todo-list"></div>
                 <input type="text" id="new-task" placeholder="Enter new task..." />
                 <button id="add-task">Add Task</button>
@@ -38,22 +34,6 @@
     <footer class="container">
         <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a></small>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#add-task').click(function() {
-                var task = $('#new-task').val().trim();
-                if(task !== '') {
-                    var listItem = $('<div class="todo-item"></div>').text(task);
-                    var deleteButton = $('<button>Delete</button>').click(function() {
-                        $(this).parent().remove();
-                    });
-                    listItem.append(deleteButton);
-                    $('#todo-list').append(listItem);
-                    $('#new-task').val('');
-                }
-            });
-        });
-    </script>
+    
 </body>
 </html>
